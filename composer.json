@@ -1,0 +1,30 @@
+{
+    "name": "mosagx\/weather",
+    "description": "amap weather sdk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mosagx",
+            "email": "mosagx@163.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mosagx\\Weather\\": "src"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5",
+        "mockery/mockery": "^1.3"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mosagx\\Weather\\ServiceProvider"
+            ]
+        }
+    }
+}
