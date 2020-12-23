@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.com/mosagx/weather.svg?branch=master)](https://travis-ci.com/mosagx/weather)
 [![StyleCI build status](https://github.styleci.io/repos/323624347/shield)](https://github.styleci.io/repos/323624347/shield)
+![](https://img.shields.io/badge/language-php-blue.svg)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/mosagx/weather)
+[![GitHub license](https://img.shields.io/github/license/mosagx/weather?style=flat-square)](https://github.com/mosagx/weather/blob/master/LICENSE)
+
 
 ## About project
 Composer package based on amap API weather module.
