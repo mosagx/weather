@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the mosagx/weather.
+ *
+ * (c) mosagx <mosagx@163.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Mosagx\Weather;
 
 use GuzzleHttp\Client;
@@ -28,7 +37,7 @@ class Weather
     }
 
     /**
-     * 获取实时天气
+     * 获取实时天气.
      */
     public function getLiveWeather($city, $output = 'json')
     {
@@ -36,13 +45,12 @@ class Weather
     }
 
     /**
-     * 获取天气预报
+     * 获取天气预报.
      */
     public function getForecastsWeather($city, $output = 'json')
     {
         return $this->getWeather($city, 'all', $output);
     }
-
 
     public function getWeather($city, $extensions = 'base', $output = 'json')
     {
@@ -57,15 +65,15 @@ class Weather
         }
 
         $query = array_filter([
-            'key'        => $this->key,
-            'city'       => $city,
+            'key' => $this->key,
+            'city' => $city,
             'extensions' => \strtolower($extensions),
-            'output'     => \strtolower($output),
+            'output' => \strtolower($output),
         ]);
 
         try {
             $response = $this->getHttpClient()->get($url, [
-                'query' => $query
+                'query' => $query,
             ])->getBody()->getContents();
 
             return 'json' === $output ? \json_decode($response, true) : $response;
@@ -73,5 +81,4 @@ class Weather
             throw new HttpException($th->getMessage(), $th->getCode(), $th);
         }
     }
-
 }
