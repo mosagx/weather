@@ -56,7 +56,7 @@ class WeatherTest extends TestCase
         $w = \Mockery::mock(Weather::class, ['mock-key'])->makePartial();
         $w->allows()->getHttpClient()->andReturn($client);
 
-        $this->assertSame('"{\"success\": true}"', $w->getWeather('杭州'));
+        $this->assertSame(['success' => true], $w->getWeather('杭州'));
 
         // xml
         $response = new Response(200, [], '<hello>content</hello>');
@@ -74,6 +74,22 @@ class WeatherTest extends TestCase
         $w->allows()->getHttpClient()->andReturn($client);
 
         $this->assertSame('<hello>content</hello>', $w->getWeather('杭州', 'all', 'xml'));
+    }
+
+    public function testGetLiveWeather()
+    {
+        $w = \Mockery::mock(Weather::class, ['mock-key'])->makePartial();
+        $w->expects()->getWeather('杭州', 'base', 'json')->andReturn(['success' => true]);
+
+        $this->assertSame(['success' => true], $w->getLiveWeather('杭州'));
+    }
+
+    public function testGetForecastsWeather()
+    {
+        $w = \Mockery::mock(Weather::class, ['mock-key'])->makePartial();
+        $w->expects()->getWeather('杭州', 'all', 'json')->andReturn(['success' => true]);
+
+        $this->assertSame(['success' => true], $w->getForecastsWeather('杭州'));
     }
 
     public function testGetWeatherWithGuzzleRuntimeException()
@@ -106,7 +122,7 @@ class WeatherTest extends TestCase
         $this->assertNull($w->getHttpClient()->getConfig('timeout'));
 
         $w->setGuzzleOptions(['timeout' => 5000]);
-        
+
         $this->assertSame(5000, $w->getHttpClient()->getConfig('timeout'));
     }
 

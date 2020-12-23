@@ -27,6 +27,23 @@ class Weather
         $this->guzzleOptions = $options;
     }
 
+    /**
+     * 获取实时天气
+     */
+    public function getLiveWeather($city, $output = 'json')
+    {
+        return $this->getWeather($city, 'base', $output);
+    }
+
+    /**
+     * 获取天气预报
+     */
+    public function getForecastsWeather($city, $output = 'json')
+    {
+        return $this->getWeather($city, 'all', $output);
+    }
+
+
     public function getWeather($city, $extensions = 'base', $output = 'json')
     {
         $url = 'https://restapi.amap.com/v3/weather/weatherInfo';

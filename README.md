@@ -33,7 +33,12 @@ class Controller extends BaseController
 {
     public function test(Request $request, Weather $weather)
     {
-        return $weather->getWeather($request->input('city', '北京'));
+
+        // live weather data
+        $live_data = $weather->getLiveWeather($request->input('city', '北京'));
+
+        // forecasts weather data
+        $forecasts_data = $weather->getForecastsWeather($request->input('city', '北京'));
     }
 }
 ```
@@ -51,6 +56,10 @@ $key = 'xx'; // your amap weather application key
 
 $weather = new Weather($key);
 
-$data = $weather->getWeather('北京');
+// live weather data
+$live_data = $weather->getLiveWeather('北京');
+
+// forecasts weather data
+$forecasts_data = $weather->getForecastsWeather('北京');
 
 ```
