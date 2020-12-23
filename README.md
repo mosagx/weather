@@ -1,6 +1,7 @@
 <h1 align="center">Weather</h1>
 
 [![Build Status](https://travis-ci.com/mosagx/weather.svg?branch=master)](https://travis-ci.com/mosagx/weather)
+[![StyleCI build status](https://github.styleci.io/repos/323624347/shield)](https://github.styleci.io/repos/323624347/shield)
 
 ## About project
 Composer package based on amap API weather module.
