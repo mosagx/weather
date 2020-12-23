@@ -1,5 +1,6 @@
 <h1 align="center">Weather</h1>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+
+[![Build Status](https://travis-ci.com/mosagx/weather.svg?branch=master)](https://travis-ci.com/mosagx/weather)
 
 ## About project
 Composer package based on amap API weather module.

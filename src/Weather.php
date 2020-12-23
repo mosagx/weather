@@ -45,8 +45,7 @@ class Weather
 
 
     public function getWeather($city, $extensions = 'base', $output = 'json')
-    {
-        $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
+    {$url = 'https://restapi.amap.com/v3/weather/weatherInfo';
 
         if (!\in_array(\strtolower($output), ['xml', 'json'])) {
             throw new InvalidArgumentException('Invalid response output: '.$output);
